@@ -99,7 +99,7 @@ document.querySelector('#placeOrder').addEventListener('click', e => {
         showMessage('error', 'All fields are required');
     } else {
 
-        // generate UserId
+        // generate User_id
         let generate = JSON.parse(localStorage.getItem('userId')) || Date.now() + Math.floor(Math.random());
 
         localStorage.setItem('userId', JSON.stringify(generate));
