@@ -91,6 +91,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="{{ route('front.contact') }}">contacts</a></li>
+                                    <li><a href="{{ route('front.customer.get.orders') }}">My Orders</a></li>
                                 </ul>
                             </div>
 
@@ -271,5 +272,6 @@
 <script async src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="module" src="{{ asset('front/js/master.js') }}"></script>
 <script type="module" src="{{ asset('front/js/checkout.js') }}"></script>
+<script type="module" src="{{ asset('front/js/orders.js') }}"></script>
 </body>
 </html>

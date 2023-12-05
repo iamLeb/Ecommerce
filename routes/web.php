@@ -26,11 +26,14 @@ Route::get('/show-products/{id}', [FrontController::class, 'show'])->name('front
 Route::get('/all-products', [FrontController::class, 'all'])->name('front.all');
 Route::get('/category-products/{id}', [FrontController::class, 'categoryProduct'])->name('front.category.product');
 Route::post('/customer/form', [CustomerController::class, 'store'])->name('front.customer.store');
+Route::get('/customer/info', [CustomerController::class, 'getInfo'])->name('front.customer.get.info');
+Route::get('/customer/orders/get', [CustomerController::class, 'getCustomersOrders'])->name('front.customer.get.customers.orders');
+Route::get('/customer/orders', [CustomerController::class, 'getOrders'])->name('front.customer.get.orders');
 
-Route::resource('cart', CartController::class);
-Route::post('cart/store', [CartController::class, 'store'])->name('front.cart.index');
-Route::get('cart/checkout/proceed', [CartController::class, 'checkout'])->name('front.cart.checkout');
-Route::post('cart/checkout/proceed', [CartController::class, 'store'])->name('front.cart.checkout.post');
+Route::resource('/cart', CartController::class);
+Route::post('/cart/store', [CartController::class, 'store'])->name('front.cart.index');
+Route::get('/cart/checkout/proceed', [CartController::class, 'checkout'])->name('front.cart.checkout');
+Route::post('/cart/checkout/proceed', [CartController::class, 'store'])->name('front.cart.checkout.post');
 
 Auth::routes();
 

@@ -3,6 +3,7 @@ import {Cart} from "./cart.js";
 let cart = new Cart;
 cart = cart.cart;
 
+
 // display products in checkout page
 const holdAllItem = document.querySelector('.holdAllItem');
 let items = '';
@@ -80,6 +81,26 @@ export function updateSum() {
 
 
 // show CheckOut
+let customerInfo = "";
+axios.get('/customer/info')
+    .then(function (response) {
+        // handle success
+        response.data.forEach(data => {
+            if(data.user_id == '1701755822654') {
+                document.querySelector('.contact').value = data.contact;
+                document.querySelector('.firstName').value = data.firstname;
+                document.querySelector('.lastName').value = data.lastname;
+                document.querySelector('.address').value = data.address;
+                document.querySelector('.city').value = data.city;
+                document.querySelector('.province').value = data.province;
+                document.querySelector('.instruction').value = data.instruction;
+            }
+        });
+    })
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+    })
 
 document.querySelector('#placeOrder').addEventListener('click', e => {
     e.preventDefault();
@@ -95,12 +116,15 @@ document.querySelector('#placeOrder').addEventListener('click', e => {
         contact, firstname, lastname, address, city, province, instruction
     }];
 
+    console.log(customerInfo);
+
     if (!validateForm(customer)) {
         showMessage('error', 'All fields are required');
     } else {
 
         // generate User_id
         let generate = JSON.parse(localStorage.getItem('userId')) || Date.now() + Math.floor(Math.random());
+
 
         localStorage.setItem('userId', JSON.stringify(generate));
 
@@ -133,3 +157,4 @@ function validateForm(data) {
     });
     return isValid;
 }
+
