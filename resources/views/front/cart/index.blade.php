@@ -39,9 +39,7 @@
                                     <th class="product-delete"></th>
                                 </tr>
                                 </thead>
-                                <tbody class="holdRec">
-
-                                </tbody>
+                                <tbody class="holdRec"> </tbody>
                             </table>
                         </div>
                     </div>
