@@ -135,6 +135,7 @@ function showForm() {
         }
     })
         .then(response=> {
+            console.log(response.data)
             // handle success
             if (response.data) {
                 document.querySelector('.showForm').innerHTML = `
@@ -212,7 +213,6 @@ function showForm() {
             `;
             }
         });
-    ;
 }
 
 
