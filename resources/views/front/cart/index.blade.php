@@ -50,11 +50,12 @@
                     <div class="shop-cart-total">
                         <h3 class="title">Cart Totals</h3>
                         <div class="shop-cart-widget">
+
                             <form class="submitOrder">
                                 <ul>
                                     <li class="sub-total subTotal"></li>
                                 </ul>
-                                <a href="{{ route('front.cart.checkout') }}" class="btn">Place Order Now</a>
+                                <a id="placeOrderButton" href="{{ route('front.cart.checkout') }}" class="btn">Place Order Now</a>
                             </form>
                         </div>
                     </div>

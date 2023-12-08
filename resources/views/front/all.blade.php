@@ -108,7 +108,7 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                            <p>$1.50 - 1 kg</p>
+                                            <p>${{ $product->price }}</p>
                                         </div>
                                     </div>
                                 </div>

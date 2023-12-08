@@ -3,6 +3,7 @@
     Customers Order
  */
 
+
 const customersOrder = document.querySelector('.customersOrder');
 let hold = '';
 axios.get('/customer/orders/get', {

@@ -72,6 +72,10 @@ function showCartItems() {
 
     holder.innerHTML = li;
 
+    if (!cart.length) {
+        window.location.href = '/';
+    }
+
 }
 
 
@@ -93,6 +97,9 @@ deleteItems.forEach(del => {
         del.parentElement.parentElement.remove();
         updateStorage();
 
+        if (!cart.length) {
+            document.getElementById('placeOrderButton').style.display = 'none';
+        }
         showMessage('success', 'Item removed!');
     });
 });

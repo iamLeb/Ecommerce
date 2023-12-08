@@ -117,6 +117,7 @@ document.querySelector('#placeOrder').addEventListener('click', e => {
             .then(response => {
                 // Handle success, update UI, etc.
                 showMessage('success', 'Order Placed Successfully...');
+                localStorage.removeItem('cart');
                 window.location.href = '/customer/orders';
             })
             .catch(error => {
@@ -214,7 +215,6 @@ function showForm() {
             }
         });
 }
-
 
 
 /*
