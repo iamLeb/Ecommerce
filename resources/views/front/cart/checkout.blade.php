@@ -43,39 +43,8 @@
                             </div>
                         </div>
                         <div class="checkout-form-wrap">
-                            <form>
-                                <div class="checkout-form-top">
-                                    <h5 class="title">Contact information</h5>
-                                </div>
-                                <input class="contact" name="contact" type="text" placeholder="Email or Mobile Phone Number *">
-                                <div class="news-and-offers custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="nao">
-                                    <label class="custom-control-label" for="nao">Keep me up to date on news and offers</label>
-                                </div>
-                                <div class="building-info-wrap">
-                                    <h5 class="title">Billing Information</h5>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input class="firstName" name="firstName" type="text" placeholder="First Name *">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input class="lastName" name="lastName" type="text" placeholder="Last Name *">
-                                        </div>
-                                    </div>
-                                    <input name="address" class="address" type="text" placeholder="Full Address *">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input name="city" class="city" type="text" placeholder="City">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <select disabled class="form-control province" id="province">
-                                                <option value="MB">Manitoba</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                            <form class="showForm">
 
-                                    <textarea name="instruction" class="message instruction" id="message" placeholder="Delivery instruction if any ( Optional )"></textarea>
-                                </div>
                             </form>
                         </div>
                     </div>

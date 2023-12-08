@@ -14,13 +14,15 @@ class CustomerController extends Controller
         return $request->all();
     }
 
-    public function getInfo(Customers $customers)
+    public function getInfo(Customers $customers, Request $request)
     {
-        return $customers->all();
+        $id = $request->id;
+        return $customers->where('user_id', $id)->first();
     }
-    public function getCustomersOrders(Cart $cart)
+    public function getCustomersOrders(Cart $cart, Request $request)
     {
-        return $cart->all();
+        $id = $request->id;
+        return $cart->where('user_id', $id)->get();
     }
 
     public function getOrders()

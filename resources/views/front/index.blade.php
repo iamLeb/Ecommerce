@@ -10,7 +10,7 @@
                         <div class="single-slider slider-bg" data-background="{{ asset('front/img/slider/slider_bg01.jpg') }}">
                             <div class="slider-content">
                                 <h5 class="sub-title" data-animation="fadeInUp" data-delay=".2s">top deal !</h5>
-                                <h2 class="title" data-animation="fadeInUp" data-delay=".4s">African Food General</h2>
+                                <h2 class="title" data-animation="fadeInUp" data-delay=".4s">{{ env('APP_NAME') }}</h2>
                                 <p data-animation="fadeInUp" data-delay=".6s">Your grocery store with unlimited supplies</p>
                                 <a href="{{ route('front.all') }}" class="btn rounded-btn" data-animation="fadeInUp" data-delay=".8s">Shop Now</a>
                             </div>

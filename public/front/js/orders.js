@@ -5,29 +5,29 @@
 
 const customersOrder = document.querySelector('.customersOrder');
 let hold = '';
-axios.get('/customer/orders/get')
+axios.get('/customer/orders/get', {
+    params: {
+        id: JSON.parse(localStorage.getItem('userId'))
+    }
+})
     .then(function (response) {
         // handle success
-        response.data.forEach(item => {
-            if (item.user_id === JSON.parse(localStorage.getItem('userId'))) {
-                hold += `
-                    <tr>
-                        <td class="product-thumbnail">
-                            <a href="/show-products/${item.id}">
-                                <!--                                <img src="../images/${item.image}" alt="">-->
-                                <img src="https://source.unsplash.com/random/100x100" alt="">
-                            </a>
-                        </td>
-                        <td class="product-name">
-                            <h4><a href="/show-products/${item.id}">${item.name}</a></h4>
-                        </td>
-                        <td class="product-price">$ ${item.price}</td>
-                        <td class="product-quantity">100</td>
-                    </tr>
-                `;
-            }
+        response.data.forEach(res => {
+            hold += `
+                <tr>
+                    <td class="product-thumbnail">
+                        <a href="/show-products/">
+                           <img src="../images/${res.image}" alt="">
+                        </a>
+                    </td>
+                    <td class="product-name">
+                        <h4><a href="/show-products/">${res.name}</a></h4>
+                    </td>
+                    <td class="product-price">$ ${res.price}</td>
+                    <td class="product-quantity">${res.quantity}</td>
+                </tr>
+            `
         });
-
         customersOrder.innerHTML = hold;
     })
     .catch(function (error) {

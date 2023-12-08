@@ -82,28 +82,10 @@ export function updateSum() {
 
 // show CheckOut
 let customerInfo = "";
-axios.get('/customer/info')
-    .then(function (response) {
-        // handle success
-        response.data.forEach(data => {
-            if(data.user_id == '1701755822654') {
-                document.querySelector('.contact').value = data.contact;
-                document.querySelector('.firstName').value = data.firstname;
-                document.querySelector('.lastName').value = data.lastname;
-                document.querySelector('.address').value = data.address;
-                document.querySelector('.city').value = data.city;
-                document.querySelector('.province').value = data.province;
-                document.querySelector('.instruction').value = data.instruction;
-            }
-        });
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    })
 
 document.querySelector('#placeOrder').addEventListener('click', e => {
     e.preventDefault();
+
     const contact = document.querySelector('.contact').value;
     const firstname = document.querySelector('.firstName').value;
     const lastname = document.querySelector('.lastName').value;
@@ -112,6 +94,7 @@ document.querySelector('#placeOrder').addEventListener('click', e => {
     const province = document.querySelector('.province').value;
     const instruction = document.querySelector('.instruction').value;
 
+    console.log(contact)
     const customer = [{
         contact, firstname, lastname, address, city, province, instruction
     }];
@@ -132,13 +115,9 @@ document.querySelector('#placeOrder').addEventListener('click', e => {
             generate, contact, firstname, lastname, address, city, province, instruction, cart
         })
             .then(response => {
-                // console.log(response.data);
                 // Handle success, update UI, etc.
                 showMessage('success', 'Order Placed Successfully...');
-                localStorage.removeItem("cart");
-                setInterval(() => {
-                    window.location.href = "/";
-                }, 2000);
+                window.location.href = '/customer/orders';
             })
             .catch(error => {
                 console.error(error.response.data);
@@ -147,6 +126,102 @@ document.querySelector('#placeOrder').addEventListener('click', e => {
     }
 
 });
+
+showForm();
+function showForm() {
+    axios.get('/customer/info', {
+        params: {
+            id: JSON.parse(localStorage.getItem('userId'))
+        }
+    })
+        .then(response=> {
+            // handle success
+            if (response.data) {
+                document.querySelector('.showForm').innerHTML = `
+
+                        <!-- Hidden  path-->
+                        <input value="${response.data.contact}" class="contact" name="contact" type="hidden" >
+                        <input value="${response.data.firstname}" class="firstName" name="firstName" type="hidden">
+                        <input value="${response.data.lastname}" class="lastName" name="lastName" type="hidden" >
+                        <input value="${response.data.address}" name="address" class="address" type="hidden" >
+                        <input value="${response.data.city}" name="city" class="city" type="hidden">
+                        <input value="${response.data.province}" name="province" class="province" type="hidden">
+                        <input value="${response.data.instruction}" name="instruction" class="instruction" type="hidden">
+
+                        <div class="footer-widget">
+                            <div class="f-newsletter">
+                                <div class="fw-title">
+                                    <h5 class="" style="border-bottom: 2px solid lightgreen">Address</h5>
+                                </div>
+                                <p>Full Name: <code>${response.data.firstname + ' ' + response.data.lastname}</code></p>
+                                <p>Email: <code>${response.data.contact}</code></p>
+                                <p>Shipped from: <code>Africa Food General Store, Winnipeg</code></p>
+                                <p>Shipped to: <code>${response.data.address + ', ' + response.data.city + ', ' + response.data.province}</code></p>
+                            </div>
+                            <div class="float-right btn btn-success anotherAddress" style="border-radius: 10px">Use another address</div>
+                        </div>
+            `;
+                const anotherAddress = document.querySelector('.anotherAddress');
+
+                anotherAddress.addEventListener('click', e => {
+                    e.preventDefault();
+                    let count = 1;
+                    anotherAddress.innerHTML = `Getting a new address form <i class="fa fa-spinner" aria-hidden="true"></i>`;
+
+                    setInterval(() => {
+                        count--;
+                        if (count === 0) {
+                            localStorage.removeItem('userId');
+                            window.location.href = '/cart/checkout/proceed';
+                        }
+                    }, 1000);
+                });
+
+            } else {
+                // handle success
+                document.querySelector('.showForm').innerHTML = `
+                    <div class="checkout-form-top">
+                        <h5 class="title">Contact information</h5>
+                    </div>
+                    <input class="contact" name="contact" type="text" placeholder="Email or Mobile Phone Number *">
+
+                    <div class="building-info-wrap">
+                        <h5 class="title">Billing Information</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input class="firstName" name="firstName" type="text" placeholder="First Name *">
+                            </div>
+                            <div class="col-md-6">
+                                <input class="lastName" name="lastName" type="text" placeholder="Last Name *">
+                            </div>
+                        </div>
+                        <input name="address" class="address" type="text" placeholder="Full Address *">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input name="city" class="city" type="text" placeholder="City">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <select disabled class="form-control province" id="province">
+                                    <option value="MB">Manitoba</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <textarea name="instruction" class="message instruction" id="message" placeholder="Delivery instruction if any ( Optional )"></textarea>
+                    </div>
+            `;
+            }
+        });
+    ;
+}
+
+
+
+/*
+    Use another address for delivery
+ */
+
+
 
 function validateForm(data) {
     let isValid = true;
