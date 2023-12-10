@@ -50,8 +50,8 @@
                             <div class="category-item">
                                 <a href="{{ route('front.category.product', $category->id) }}" class="category-link"></a>
                                 <div class="category-thumb">
-{{--                                    <img src="{{ asset("images/$category->photo") }}" alt="">--}}
-                                    <img src="https://source.unsplash.com/random/100x100" alt="">
+                                    <img src="{{ asset("images/$category->photo") }}" alt="">
+{{--                                    <img src="https://source.unsplash.com/random/100x100" alt="">--}}
                                 </div>
                                 <div class="category-content">
                                     <h6 class="title">{{ ucfirst($category->name) }}</h6>
@@ -132,8 +132,8 @@
                             <div class="best-deal-item">
                                 <div class="best-deal-thumb">
                                     <a href="{{ route('front.show', $product->id) }}">
-{{--                                        <img src="{{ asset('images/' . $product->image->first()->image ) }}" alt=""></a>--}}
-                                        <img src="{{ asset('no-image-icon-23494.png') }}" alt=""></a>
+                                        <img src="{{ asset('images/' . $product->image->first()->image ) }}" alt=""></a>
+{{--                                        <img src="{{ asset('no-image-icon-23494.png') }}" alt="">--}}
                                 </div>
                                 <div class="best-deal-content">
                                     <div class="main-content">
@@ -198,8 +198,8 @@
                                         <div class="sp-product-thumb">
                                             <span class="@if($product->status) batch @else batch discount @endif">@if($product->status) In stock @else Out of stock @endif</span>
                                             <a href="{{ route('front.show', $product->id) }}">
-{{--                                                <img src="{{ asset('images/' . $product->image->first()->image ) }}" alt="Image">--}}
-                                                <img src="{{ asset('no-image-icon-23494.png') }}" alt="Image">
+                                                <img src="{{ asset('images/' . $product->image->first()->image ) }}" alt="Image">
+{{--                                                <img src="{{ asset('no-image-icon-23494.png') }}" alt="Image">--}}
 
                                             </a>
                                         </div>
@@ -291,8 +291,8 @@
                                 <div class="sp-product-thumb">
                                     <span class="batch">New</span>
                                     <a href="{{ route('front.show', $product->id) }}">
-{{--                                        <img src="{{ asset('images/' . $product->image->random()->image ) }}" alt="">--}}
-                                        <img src="{{ asset('no-image-icon-23494.png') }}" alt="">
+                                        <img src="{{ asset('images/' . $product->image->random()->image ) }}" alt="">
+{{--                                        <img src="{{ asset('no-image-icon-23494.png') }}" alt="">--}}
                                     </a>
                                 </div>
                                 <div class="sp-product-content">

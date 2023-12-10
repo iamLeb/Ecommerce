@@ -23,29 +23,20 @@
     <!-- breadcrumb-area-end -->
 
     <!-- cart-area -->
-    <div class="cart-area pt-90 pb-90">
-        <div class="container">
+    <div class="container">
+        <div class="container-inner-wrap">
             <div class="row justify-content-center">
-                <div class="col-xl-12">
-                    <div class="cart-wrapper">
-                        <div class="table-responsive">
-                            <table class="table mb-0">
-                                <thead>
-                                <tr>
-                                    <th class="product-thumbnail"></th>
-                                    <th class="product-name">Product</th>
-                                    <th class="product-price">Price</th>
-                                    <th class="product-quantity">QUANTITY</th>
-                                    <th class="product-delete"></th>
-                                </tr>
-                                </thead>
-                                <tbody class="customersOrder">
-                                    {{-- js will load orders here  --}}
-                                </tbody>
-                            </table>
-                        </div>
+                <div class="col-xl-7 col-lg-9">
+                    <div class="services-section-title text-center mb-55">
+                        <h2 class="title mt-2">My Orders</h2>
+                        <p>Below are your latest orders</p>
                     </div>
                 </div>
+            </div>
+            <div class="row justify-content-center customersOrder">
+
+                {{--Js Code Here --}}
+
             </div>
         </div>
     </div>

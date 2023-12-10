@@ -52,7 +52,7 @@ class CartController extends Controller
                 'name' => $cart["name"],
                 'image' => $cart["image"],
                 'price' => $cart["price"],
-                'status' => $cart["status"],
+                'status' => 0,
                 'quantity' => $cart["quantity"]
             ]);
         }

@@ -14,19 +14,19 @@ axios.get('/customer/orders/get', {
     .then(function (response) {
         // handle success
         response.data.forEach(res => {
+            console.log(res)
             hold += `
-                <tr>
-                    <td class="product-thumbnail">
-                        <a href="/show-products/">
-                           <img src="../images/${res.image}" alt="">
-                        </a>
-                    </td>
-                    <td class="product-name">
-                        <h4><a href="/show-products/">${res.name}</a></h4>
-                    </td>
-                    <td class="product-price">$ ${res.price}</td>
-                    <td class="product-quantity">${res.quantity}</td>
-                </tr>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
+                    <div class="services-item">
+                        <a href="contact.html" class="services-link"></a>
+                        <div class="icon"><i class="flaticon-delivery"></i></div>
+                        <div class="content">
+                            <h5>${res.name} - ($${res.price})</h5>
+                            <p>Quantity: ${res.quantity}</p>
+                            <p>Delievery Statys: ${+res.status ? 'Delivered' : 'in progress...'}</p>
+                        </div>
+                    </div>
+                </div>
             `
         });
         customersOrder.innerHTML = hold;

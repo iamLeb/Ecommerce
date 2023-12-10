@@ -42,5 +42,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');
     Route::resource('product', ProductsController::class);
     Route::resource('category', CategoryController::class);
+
+    Route::get('/customers/orders', [DashboardController::class, 'orders'])->name('orders.index');
+    Route::get('/customers', [DashboardController::class, 'customers'])->name('customers.index');
+    Route::get('/customers/{id}', [DashboardController::class, 'customersShow'])->name('customers.show');
+    Route::get('/customers/order/{id}', [DashboardController::class, 'orderStatus'])->name('order.status');
+    Route::get('/customers/order/all/{id}', [DashboardController::class, 'orderStatusAll'])->name('order.status.all');
+
 });
 
