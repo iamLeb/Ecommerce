@@ -34,7 +34,8 @@
                                             <div class="swiper-wrapper">
                                                 @foreach($product->image as $image)
                                                     <div class="swiper-slide text-center">
-                                                        <img src="{{ asset("images/$image->image") }}" alt="" class="img-fluid d-block" />
+                                                        <img src="https://arabicawhite.s3.amazonaws.com/afg/{{ $image->image }}" alt="" class="img-fluid d-block" />
+{{--                                                        <img src="{{ asset("images/$image->image") }}" alt="" class="img-fluid d-block" />--}}
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -47,7 +48,7 @@
                                                 @foreach($product->image as $image)
                                                     <div class="swiper-slide">
                                                         <div class="nav-slide-item">
-                                                            <img src="{{ asset("images/$image->image") }}" alt="" class="img-fluid d-block" />
+                                                            <img src="https://arabicawhite.s3.amazonaws.com/afg/{{ $image->image }}" alt="" class="img-fluid d-block" />
                                                         </div>
                                                     </div>
                                                 @endforeach

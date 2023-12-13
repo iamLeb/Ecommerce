@@ -32,15 +32,13 @@
                                     @php $count++ @endphp
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link" id="item-two-tab" data-toggle="tab" href="#item-{{ $count }}" role="tab" aria-controls="item-{{ $count }}" aria-selected="false">
-{{--                                            <img class="holdImg" src="{{ asset("images/" . $image->image) }}" alt="">--}}
-                                            <img class="holdImg" src="{{ asset("no-image-icon-23494.png") }}" alt="">
+                                            <img class="holdImg" src="https://arabicawhite.s3.amazonaws.com/afg/{{ $image->image }}" alt="">
                                         </a>
                                     </li>
                                 @endforeach
 
                                 <style>
                                     .holdImg {
-                                        background-color: #eae9e9;
                                         border-radius: 10px;
                                         padding: 10px;
                                     }
@@ -54,8 +52,7 @@
                                     @php $count++ @endphp
                                     <div class="tab-pane fade show @if($count == 1) active @endif" id="item-{{ $count }}" role="tabpanel" aria-labelledby="item-one-tab">
                                         <div class="shop-details-img">
-{{--                                            <img class="holdImg" src="{{ asset("images/" . $image->image) }}">--}}
-                                            <img class="holdImg" src="{{ asset("no-image-icon-23494.png") }}" alt="">
+                                            <img class="holdImg" src="https://arabicawhite.s3.amazonaws.com/afg/{{ $image->image }}" alt="">
                                         </div>
                                     </div>
                                 @endforeach
@@ -138,8 +135,8 @@
                                     <div class="row">
                                         <div class="col-xl-3 col-md-5">
                                             <div class="product-desc-img">
-{{--                                                <img src="{{ asset('images/' . $product->image->first()->image) }}" alt="">--}}
-                                                <img src="{{ asset("no-image-icon-23494.png") }}" alt="">
+                                                <img class="holdImg" src="https://arabicawhite.s3.amazonaws.com/afg/{{ $product->image->first()->image }}" alt="">
+
                                             </div>
                                         </div>
                                         <div class="col-xl-9 col-md-7">
@@ -204,8 +201,7 @@
                                 <div class="sp-product-thumb">
                                     <span class="batch">New</span>
                                     <a href="{{ route('front.show', $product->id) }}">
-{{--                                        <img src="{{ asset('images/' . $product->image->first()->image) }}" alt="">--}}
-                                        <img src="{{ asset("no-image-icon-23494.png") }}" alt="">
+                                        <img class="holdImg" src="https://arabicawhite.s3.amazonaws.com/afg/{{ $product->image->first()->image }}" alt="">
                                     </a>
 
                                 </div>

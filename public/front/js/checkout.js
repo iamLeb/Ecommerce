@@ -11,11 +11,15 @@ cart.forEach(item => {
     items += `
         <div class="os-products-item">
             <div class="thumb">
-                <a href="./show-products/${item.id}"><img src="../../images/${item.image}" alt=""></a>
+                <a href="/show-products/${item.id}">
+                    <img src="https://arabicawhite.s3.amazonaws.com/afg/${item.image}" alt="">
+                </a>
             </div>
             <div class="content">
-                <h6 class="title"><a href="./show-products/${item.id}">${item.name}</a></h6>
-                <span class="price">${item.price} ( x${item.quantity} )</span>
+                <h6 class="title">
+                    <a href="/show-products/${item.id}">${item.name}</a>
+                </h6>
+                <span class="price">$${item.price} ( x${item.quantity} )</span>
             </div>
              <div data-id="${item.id}" class="remove">x</div>
         </div>

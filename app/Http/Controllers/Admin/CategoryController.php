@@ -36,7 +36,7 @@ class CategoryController extends Controller
 
         $imageName = '-category-' . time() . rand(1, 1000) . '.' . $request->photo->extension();
 
-        $request->photo->move(public_path('images'), $imageName);
+        $request->photo->storeAs('afg/', $imageName, 's3');
 
         $image = new Category([
             'name' => $request->get('name'),

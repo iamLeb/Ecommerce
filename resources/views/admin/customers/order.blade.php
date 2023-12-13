@@ -122,7 +122,7 @@
                                                                                 <p class="text-muted mb-0">Image: <img width="40%" src="{{ asset('images/' . $order->image) }}" alt=""></p>
                                                                             </div>
                                                                             <div class="flex-shrink-0 ms-2">
-                                                                                <div class="badge @if(+$order->status) bg-success-subtle text-success @else bg-warning-subtle text-warning @endif fs-10"> @if(+$order->status) Delivered @else In Progress... @endif</div>
+                                                                                <div class="badge @if(+$order->status) bg-success-subtle text-success @else bg-warning-subtle text-warning @endif fs-10"> @if(+$order->status) Delivered @else <progress></progress> @endif</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>

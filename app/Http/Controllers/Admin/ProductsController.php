@@ -48,7 +48,8 @@ class ProductsController extends Controller
         if ($request->has('image')) {
             foreach ($request->file('image') as $image) {
                 $imageName = '-product-' . time() . rand(1, 1000) . '.' . $image->extension();
-                $image->move(public_path('images'), $imageName);
+//                $image->move(public_path('images'), $imageName);
+                $image->storeAs('afg/', $imageName, 's3');
 
                 Image::create([
                     'product_id' => $product->id,

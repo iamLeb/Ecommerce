@@ -43,13 +43,13 @@ export function updateStorage() {
 function showCartItems() {
     let holder = document.querySelector('.holdRec');
     let li = '';
+
     cart.forEach(item => {
         li += `
             <tr>
                 <td class="product-thumbnail">
                     <a href="/show-products/${item.id}">
-<!--                                <img src="../images/${item.image}" alt="">-->
-                        <img src="https://source.unsplash.com/random/100x100" alt="">
+                        <img class="holdImg" src="https://arabicawhite.s3.amazonaws.com/afg/${item.image}" alt="">
                     </a>
                 </td>
                 <td class="product-name">
